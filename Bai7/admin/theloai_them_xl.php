@@ -1,9 +1,9 @@
 <?php //ob_start();
 	include_once('../connect.php');
-	
+		// upload hinh anh	
 	$icon=$_FILES['image']['name'];
     $anhminhhoa_tmp=$_FILES['image']['tmp_name'];
-    move_uploaded_file($anhminhhoa_tmp,"../image/".$icon);
+    move_uploaded_file($anhminhhoa_tmp,"image/".$icon);
 
 	$theloai = $_POST['TenTL'];
 	$thutu = $_POST['ThuTu'];
@@ -15,12 +15,10 @@
 	{
 		echo "<script language='javascript'>alert('Them thanh cong');";
 		echo "location.href='theloai.php';</script>";
-		
+		//header("location:theloai.php");
 	}
 	else
 	{
-		echo 'Lỗi: ',mysqli_error();
+		echo 'Lỗi: ',mysqli_error($link);
 	}
-
-
-?>
+//mysqli_close($link);
